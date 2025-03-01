@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome to Book Manager{% endblock %}
+
+{% block body %}
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Welcome to Book Manager</h1>
+        <p class="lead">Manage your book collection with ease.</p>
+        <hr class="my-4">
+        <p>Get started by adding your first book or browsing the existing collection.</p>
+        <a class="btn btn-primary btn-lg" href="{{ path('app_book_index') }}" role="button">View Books</a>
+    </div>
+{% endblock %} 

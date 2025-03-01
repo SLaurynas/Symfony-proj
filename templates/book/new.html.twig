@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add New Book{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center my-4">Add New Book</h1>
+
+        {% for flash in app.flashes('error') %}
+            <div class="alert alert-danger">{{ flash }}</div>
+        {% endfor %}
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                {{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+                    <div class="mb-3">
+                        {{ form_label(form.title, 'Title', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_label(form.author, 'Author', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.author, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_label(form.yearOfPublication, 'Year of Publication', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.yearOfPublication, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_label(form.isbn, 'ISBN', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.isbn, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Add Book</button>
+                    </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+
+        <a href="{{ path('app_book_index') }}" class="btn btn-secondary">Back to List</a>
+    </div>
+{% endblock %}
